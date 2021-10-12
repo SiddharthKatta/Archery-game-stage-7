@@ -9,7 +9,7 @@ var palyer, playerBase, playerArcher;
 var playerArrows = [];
 var numberOfArrows = 10;
 var board1, board2;
-var score;
+var score = 0;
 
 function preload() {
   backgroundImg = loadImage("./assets/background.png");
@@ -54,7 +54,8 @@ function draw() {
 
   playerArcher.display();
 
-  gameover();
+
+ 
 
   board1.display();
   board2.display();
@@ -110,12 +111,15 @@ function draw() {
   fill("#FFFF")
   textAlign("center");
   textSize(40);
-  text("score" , 1350 , 100 )
+  text("Point = "+score , 1350 , 100 )
 
   if (numberOfArrows == 0) {
     console.log("arrow bucket is empty")
+    gameover();
   }
 }
+
+
 
 function keyPressed() {
   if (keyCode === 32) {
